@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * 后台登陆后首页控制器
  */
-namespace application\controller\Admin\Home;
 
 class Home extends AController {
 
