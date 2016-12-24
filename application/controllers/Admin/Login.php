@@ -4,13 +4,15 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Login extends MY_Controller {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper('url');
-        $this->load->library('session');
+        $this->load->helper('session');
+        if(isAdminSession()){
+            redirect('admin/home/index');//如果已经登陆,则重定向到后台首页
+        }
     }
 
     /**

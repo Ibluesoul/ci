@@ -8,11 +8,11 @@
 
     <title>登录</title>
 
-    <link href="<?=base_url()?>public/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
-    <link href="<?=base_url()?>public/font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
+    <link href="<?=base_url()?>public/admin/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link href="<?=base_url()?>public/admin/font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
 
-    <link href="<?=base_url()?>public/css/animate.css" rel="stylesheet">
-    <link href="<?=base_url()?>public/css/style.css?v=2.2.0" rel="stylesheet">
+    <link href="<?=base_url()?>public/admin/css/animate.css" rel="stylesheet">
+    <link href="<?=base_url()?>public/admin/css/style.css?v=2.2.0" rel="stylesheet">
 
 </head>
 
@@ -45,10 +45,8 @@
 </div>
 
 <!-- Mainly scripts -->
-<script src="<?=base_url()?>public/js/jquery-2.1.1.min.js"></script>
-<script src="<?=base_url()?>public//js/bootstrap.min.js?v=3.4.0"></script>
-
-<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script><!--统计代码，可删除-->
+<script src="<?=base_url()?>public/admin/js/jquery-2.1.1.min.js"></script>
+<script src="<?=base_url()?>public/admin/js/bootstrap.min.js?v=3.4.0"></script>
 
 </body>
 

@@ -14,7 +14,11 @@ class Admin extends CI_Model {
         $this->load->database();
     }
 
-
+    /**
+     * 后台登陆账号密码验证
+     * @param $data
+     * @return bool
+     */
     public function validate($data)
     {
         if(empty($data['account']) || empty($data['password'])) return false; //如果账号或密码为空，返回false
@@ -26,7 +30,6 @@ class Admin extends CI_Model {
             ->result();
 
         if(count($result)>0){
-            $this->load->helper('session');
             setAdminSession($result);//登陆成功写入session
             return true;
         }else{

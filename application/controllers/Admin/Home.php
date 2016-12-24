@@ -14,7 +14,15 @@ class Home extends AController {
 
 	public function index()
 	{
-        echo 'hello world';
-		//$this->load->view('admin/home/index');
+        $this->hasLayoutView('admin/home/index',null);
+	}
+
+    /**
+     * 登出
+     */
+    public function logout()
+    {
+        removeAdminSession();
+        redirect('admin/login/index');
 	}
 }
