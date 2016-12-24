@@ -42,6 +42,17 @@ class Article extends CI_Model {
     }
 
     /**
+     * 删除article表的某一条数据(通过id来删除)
+     * @param $id
+     * @return bool
+     */
+    public function del($id)
+    {
+        $result = $this->db->delete('article', array('id'=>$id));
+        return $result?true:false;
+    }
+
+    /**
      * 通过id获取article的内容
      * @param $id
      * @return bool
@@ -55,5 +66,18 @@ class Article extends CI_Model {
             ->result();
 
         return count($result)>0?$result[0]:false;
+    }
+
+    /**
+     * 获取所有的article文章
+     * @return mixed
+     */
+    public function getAllArticles()
+    {
+        $result = $this->db->select('id, title, content, updated_at, created_at')
+            ->from('article')
+            ->order_by('created_at desc ')
+            ->get();
+        return $result;
     }
 }

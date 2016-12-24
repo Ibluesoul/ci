@@ -14,7 +14,9 @@ class Blog extends AController {
 
 	public function index()
 	{
-        //$this->hasLayoutView('admin/home/index',null);
+        $this->load->model('Article');
+        $data['list']=$this->Article->getAllArticles()->result();
+        $this->hasLayoutView('admin/blog/index',$data);
 	}
 
     /**
@@ -60,11 +62,20 @@ class Blog extends AController {
 	}
     /**
      * 删除一篇博客
-     * @param $id
      */
-    public function del($id)
+    public function del()
     {
-
+        if($this->input->is_ajax_request()) {
+            $id = $this->input->post('id');
+            if(empty($id)){
+                $res = array('code'=>'400');//传递的参数为空
+            }else{
+                $res = array('code'=>'200','result'=>$this->delete($id));
+            }
+        }else{
+            $res = array('code'=>'500');
+        }
+        $this->returnAjax($res);
 	}
 
     /**
@@ -80,6 +91,17 @@ class Blog extends AController {
         }else{
             return $this->Article->update($data,$id);
         }
+	}
+
+    /**
+     * 删除某一条article表记录(通过id来删除)
+     * @param $id
+     * @return mixed
+     */
+    public function delete($id)
+    {
+        $this->load->model('Article');
+        return $this->Article->del($id);
 	}
 
 }

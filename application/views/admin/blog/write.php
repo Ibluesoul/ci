@@ -11,10 +11,10 @@
                 <a href="<?=site_url('admin/home/index')?>">主页</a>
             </li>
             <li>
-                <a>博客</a>
+                <a class="f">博客</a>
             </li>
             <li>
-                <strong>写博客</strong>
+                <strong class="s">写博客</strong>
             </li>
         </ol>
     </div>

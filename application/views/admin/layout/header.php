@@ -31,9 +31,18 @@
     <script src="<?=base_url()?>public/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="<?=base_url()?>public/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
+    <!-- Peity -->
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+
     <!-- Custom and plugin javascript -->
     <script src="<?=base_url()?>public/admin/js/hplus.js?v=2.2.0"></script>
     <script src="<?=base_url()?>public/admin/js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- Peity -->
+    <script src="js/demo/peity-demo.js"></script>
 
 </head>
 
@@ -70,16 +79,16 @@
                     </div>
 
                 </li>
-                <li class="active">
+                <li>
                     <a href="<?=site_url('admin/home/index')?>"><i class="fa fa-magic"></i> <span class="nav-label">主页</span></a>
                 </li>
 
                 <li>
                     <a href="javascript:;"><i class="fa fa-th-large"></i> <span class="nav-label">博客</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="<?=site_url('admin/blog/write')?>">写博客</a>
+                        <li><a class="nav-second-label" href="<?=site_url('admin/blog/write')?>">写博客</a>
                         </li>
-                        <li><a href="##">查看博客</a>
+                        <li><a class="nav-second-label" href="<?=site_url('admin/blog/index')?>">查看博客</a>
                         </li>
                     </ul>
                 </li>
@@ -191,3 +200,16 @@
 
             </nav>
         </div>
+
+        <script>
+            $(function(){
+                $('.nav .nav-label').each(function(){
+                    if($(this).html() == $('.breadcrumb').find('.f').html()) $(this).closest('a').click();
+                });
+
+                $('.nav .nav-second-label').each(function(){
+                    if($(this).html() == $('.breadcrumb').find('.s').html()) $(this).closest('li').addClass('active');
+                });
+            })
+
+        </script>
