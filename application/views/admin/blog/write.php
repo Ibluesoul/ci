@@ -90,7 +90,7 @@
         var title = $('#title').val();
         var content = $('.note-editable').html();
         $.ajax({
-            url:"<?=site_url('admin/blog/ajaxWrite')?>",
+            url:"<?=site_url('admin/blog/ajax')?>",
             type:'post',
             data:{title: title, content:content},
             success:function(data){

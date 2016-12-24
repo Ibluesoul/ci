@@ -26,10 +26,23 @@ class Blog extends AController {
 	}
 
     /**
-     * 处理write页面的ajax传来的数据
+     * 修改一篇博客
+     */
+    public function update()
+    {
+        $id = $this->input->get('id');
+        if($id == null) { show_404(); } //没有id的话,跳转404
+        $this->load->model('Article');
+        $data = $this->Article->getArticle($id);
+        if(!$data) { show_404(); } //如果找不到符合的数据,跳转404
+        $this->hasLayoutView('admin/blog/update',$data);
+	}
+
+    /**
+     * 处理write页面和update的ajax传来的数据
      * @return array
      */
-    public function ajaxWrite()
+    public function ajax()
     {
         if($this->input->is_ajax_request()){
             $data =  array('title'=>$this->input->post('title'),
@@ -38,23 +51,13 @@ class Blog extends AController {
             if(empty($data['title']) || empty($data['content'])){
                 $res = array('code'=>'400');//传递的参数为空
             }else {
-                $res = array('code'=>'200','result'=>$this->save($data));
+                $res = array('code'=>'200','result'=>$this->save($data,$this->input->post('id')));
             }
         }else{
             $res = array('code'=>'500');
         }
-        returnAjax($res);
+        $this->returnAjax($res);
 	}
-
-    /**
-     * 修改一篇博客
-     * @param $id
-     */
-    public function update($id)
-    {
-
-	}
-
     /**
      * 删除一篇博客
      * @param $id

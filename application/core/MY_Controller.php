@@ -11,6 +11,13 @@ class MY_Controller extends CI_Controller {
         $this->load->library('session');
     }
 
+    /**
+     * 处理ajax返回的数组
+     * @param $res
+     */
+    protected function returnAjax($res){
+        exit(json_encode($res));
+    }
 
 }
 
@@ -33,6 +40,7 @@ class HController extends MY_Controller {
         $this->load->view($view, $data);
         $this->load->view('layout/footer');
     }
+
 }
 
 /**

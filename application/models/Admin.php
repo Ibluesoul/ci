@@ -30,7 +30,7 @@ class Admin extends CI_Model {
             ->result();
 
         if(count($result)>0){
-            setAdminSession($result);//登陆成功写入session
+            setAdminSession($result[0]);//登陆成功写入session
             return true;
         }else{
             return false;

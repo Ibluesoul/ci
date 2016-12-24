@@ -5,7 +5,3 @@
 function test(){
     echo 'test';
 }
-
-function returnAjax($res){
-    exit(json_encode($res));
-}

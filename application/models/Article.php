@@ -40,4 +40,20 @@ class Article extends CI_Model {
         $result = $this->db->update('article', $data, array('id'=>$id));
         return $result?true:false;
     }
+
+    /**
+     * 通过id获取article的内容
+     * @param $id
+     * @return bool
+     */
+    public function getArticle($id)
+    {
+        $result = $this->db->select('id, title, content')
+            ->from('article')
+            ->where('id', $id)
+            ->get()
+            ->result();
+
+        return count($result)>0?$result[0]:false;
+    }
 }

@@ -5,7 +5,7 @@
  * @param $data
  */
 function setAdminSession($data){
-    foreach($data[0] as $k => $v){
+    foreach($data as $k => $v){
         $_SESSION["$k"] = $v;
     }
 }
