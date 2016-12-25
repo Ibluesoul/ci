@@ -28,18 +28,23 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>标题</h5>
+                    <h5>写点什么吧</h5>
                     <div class="ibox-tools">
                         <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="submit"><strong>保 存</strong>
                         </button>
                     </div>
                 </div>
 
-                    <div class="ibox float-e-margins" style="margin-bottom: auto">
-                        <div class="ibox-title">
-                            <input type="text" placeholder="请写个标题" id="title" class="form-control">
+                    <div class="ibox  float-e-margins" style="margin-bottom: auto">
+                        <div class="ibox-title ">
+                            <input type="text" placeholder="请写个标题" id="title" class="form-control " style="width: 600px; margin-bottom: 20px;">
+
+                            <textarea id="abstract" class="form-control" placeholder="请写点详细描述"  style="width: 600px; " ></textarea> <span class="help-block m-b-none"></span>
                         </div>
+
                     </div>
+
+
 
                 <div class="ibox-content">
 
@@ -89,11 +94,12 @@
     function write(){
         var title = $('#title').val();
         var content = $('.note-editable').html();
+        var abstract = $('#abstract').val();
         $.ajax({
             url:"<?=site_url('admin/blog/ajax')?>",
             type:'post',
             dataType:'json',
-            data:{title: title, content:content},
+            data:{title: title, abstract:abstract, content:content},
             success:function(data){
                 if(data.code=='400'){
                     alert('请填写完整');

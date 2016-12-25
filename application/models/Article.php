@@ -169,6 +169,20 @@ class Article extends CI_Model {
         $config['per_page'] = $pagesize;//每页展示几个项目
         $config['base_url'] = site_url('home/index');//包含分页控制器类和方法
         $config['page_query_string'] = true; //url使用传统的?=形式
+        $config['full_tag_open'] = '<ul class="pagination">';//起始标签放在所有结果的左侧。
+        $config['full_tag_close'] = '</ul>';//结束标签放在所有结果的右侧
+        $config['num_tag_open'] = '<li>';//数字链接的起始标签。
+        $config['num_tag_close'] = '</li>';//数字链接的结束标签
+        $config['cur_tag_open'] = '<li class="active"><a>';//当前页链接的起始标签
+        $config['cur_tag_close'] = '</a></li>';//当前页链接的结束标签
+        $config['prev_tag_open'] = '<li>';//上一页链接的起始标签
+        $config['prev_tag_close'] = '</li>';//上一页链接的结束标签
+        $config['next_tag_open'] = '<li>';//下一页链接的起始标签
+        $config['next_tag_close'] = '</li>';//下一页链接的结束标签
+        $config['first_tag_open'] = '<li>';//第一个链接的起始标签
+        $config['first_tag_close'] = '</li>';//第一个链接的结束标签
+        $config['last_tag_open'] = '<li>';//最后一个链接的起始标签
+        $config['last_tag_close'] = '</li>';//最后一个链接的结束标签
         $config['total_rows'] = $count;//需分页的总数据行数，我这里从数据库查询到
         $config['uri_segment'] = $pagesize;
         //$offset = intval($this->uri->segment($page));//uri中分段函数，从控制器开始数，起始数字是1

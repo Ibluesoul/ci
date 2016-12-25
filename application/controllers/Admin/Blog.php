@@ -48,7 +48,8 @@ class Blog extends AController {
     {
         if($this->input->is_ajax_request()){
             $data =  array('title'=>$this->input->post('title'),
-                'content'=>$this->input->post('content'));
+                'content'=>$this->input->post('content'),
+                'abstract'=>$this->input->post('abstract'));
 
             if(empty($data['title']) || empty($data['content'])){
                 $res = array('code'=>'400');//传递的参数为空

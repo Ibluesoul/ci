@@ -1,3 +1,4 @@
+<link href="<?=base_url()?>public/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?=base_url()?>public/css/base1.css" rel="stylesheet">
 <link href="<?=base_url()?>public/css/index1.css" rel="stylesheet">
 <!--banner广告-->
@@ -32,7 +33,9 @@
                 </ul>
             </div>
             <?php endforeach; ?>
-            <?=$all['page_link']?>
+            <div class="pagination-centered">
+                <?=$all['page_link']?>
+            </div>
             <!--topnews内容-->
 
 
