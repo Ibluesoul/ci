@@ -30,7 +30,7 @@
                 <div class="ibox-title">
                     <h5>标题</h5>
                     <div class="ibox-tools">
-                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="submit"><strong>保 存</strong>
+                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" id="submit"><strong>修 改</strong>
                         </button>
                     </div>
                 </div>
@@ -93,9 +93,19 @@
         $.ajax({
             url:"<?=site_url('admin/blog/ajax')?>",
             type:'post',
+            dataType:'json',
             data:{id:id, title: title, content:content},
             success:function(data){
-                console.log(data);
+                if(data.code=='400'){
+                    alert('请填写完整');
+                }else if(data.code=='200'){
+                    if(data.result){
+                        alert('修改成功');
+                        location.href='<?=site_url('admin/blog/index')?>';//页面跳转到查看博客
+                    }else{
+                        alert('数据库写入错误,请重试');
+                    }
+                }
             }
         })
     }

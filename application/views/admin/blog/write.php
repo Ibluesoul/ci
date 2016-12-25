@@ -92,9 +92,19 @@
         $.ajax({
             url:"<?=site_url('admin/blog/ajax')?>",
             type:'post',
+            dataType:'json',
             data:{title: title, content:content},
             success:function(data){
-                console.log(data);
+                if(data.code=='400'){
+                    alert('请填写完整');
+                }else if(data.code=='200'){
+                    if(data.result){
+                        alert('保存成功');
+                        location.href='<?=site_url('admin/blog/index')?>';//页面跳转到查看博客
+                    }else{
+                        alert('数据库写入错误,请重试');
+                    }
+                }
             }
         })
     }

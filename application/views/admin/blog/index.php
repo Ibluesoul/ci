@@ -3,7 +3,7 @@
         <h2>查看博客</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">主页</a>
+                <a href="<?=site_url('admin/home/index')?>">主页</a>
             </li>
             <li>
                 <a class="f">博客</a>
@@ -115,7 +115,6 @@
                 if(data.code=='400'){
                     alert('请刷新页面重试');
                 }else if(data.code=='200'){
-                    console.log(data.result);
                     if(data.result){
                         alert('删除成功');
                         location.reload();//页面重新加载
