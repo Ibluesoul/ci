@@ -20,7 +20,7 @@
         <!--topnews内容-->
         <div class="topnews">
             <h2> <b>全部</b>博客 </h2>
-            <?php foreach($list as $k =>$v): ?>
+            <?php foreach($all['list'] as $k =>$v): ?>
             <div class="blogs">
                 <figure><a href='/' class='preview'><img src='<?=base_url('public')?>/images/s<?=rand(1,18)?>.jpg'/></a> </figure>
                 <h3><a href="/"><?=$v->title?></a></h3>
@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <?php endforeach; ?>
-            <?=$page_link?>
+            <?=$all['page_link']?>
             <!--topnews内容-->
 
 
@@ -73,22 +73,17 @@
             <div class="ms-main" id="ms-main">
                 <div style="display: block;" class="bd bd-news" >
                     <ul>
-                        <li><a href="/" target="_blank">分享一个炫酷利用纯CSS3实现的手风琴</a></li>
-                        <li><a href="/" target="_blank">两只蜗牛艰难又浪漫的一吻</a></li>
-                        <li><a href="/" target="_blank">每每接到新项目，都感觉困难，踏出</a></li>
-                        <li><a href="/" target="_blank">春暖花开-走走停停-发现美</a></li>
-                        <li><a href="/" target="_blank">Ui Parade免费的UI在线设计工具</a></li>
-                        <li><a href="/" target="_blank">记得秋天吗</a></li>
+                        <?php foreach($hits as $k => $v): ?>
+                            <li><a href="<?=site_url('blog/index')?>?id=<?=$v->id?>" target="_blank"><?=$v->title?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
                 <div  class="bd bd-news">
                     <ul>
-                        <li><a href="/" target="_blank">给我一个答案</a></li>
-                        <li><a href="/" target="_blank">生活是什么？</a></li>
-                        <li><a href="/" target="_blank">那些不是事</a></li>
-                        <li><a href="/" target="_blank">路·过-喜欢在路上</a></li>
-                        <li><a href="/" target="_blank">人生因分享,人生因分享的风景</a></li>
-                        <li><a href="/" target="_blank">跟着自己的心走</a></li>
+                        <?php foreach($new as $k => $v): ?>
+                            <li><a href="<?=site_url('blog/index')?>?id=<?=$v->id?>" target="_blank"><?=$v->title?></a></li>
+                        <?php endforeach; ?>
+
                     </ul>
                 </div>
             </div>

@@ -92,10 +92,11 @@ class Article extends CI_Model {
      */
     public function getHitsArticles($pagesize = 6)
     {
-        $result = $this->getTable()
+        $result = $this->db->select('id, title')->from('article')
             ->limit($pagesize,0)
             ->order_by('hits desc ')
-            ->get();
+            ->get()
+            ->result();
         return $result;
     }
 
@@ -106,10 +107,11 @@ class Article extends CI_Model {
      */
     public function getNewArticles($pagesize = 6)
     {
-        $result = $this->getTable()
+        $result = $this->db->select('id, title')->from('article')
             ->limit($pagesize,0)
             ->order_by('created_at desc ')
-            ->get();
+            ->get()
+            ->result();
         return $result;
     }
 

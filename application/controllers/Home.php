@@ -22,7 +22,9 @@ class Home extends HController {
 	{
         $page = $this->input->get('per_page');
         $this->load->model('Article');
-        $data = $this->Article->getPageArticles($page?:0,5);
+        $data['all'] = $this->Article->getPageArticles($page?:0,5); //全部博客的数据
+        $data['hits'] = $this->Article->getHitsArticles(6);//点击排行的数据
+        $data['new'] = $this->Article->getnewArticles(6);//最新文章的数据
 		$this->hasLayoutView('home/index',$data);
 	}
 }
