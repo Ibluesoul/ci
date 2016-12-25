@@ -17,8 +17,8 @@ class Blog extends HController {
         $this->load->model('Article');
         $id = $this->input->get('id');
         if(!$id) show_404();
-        $data['list']=$this->Article->getArticle($id)->result();
-        $this->hasLayoutView('admin/blog/index',$data);
+        $data['article']=$this->Article->getArticle($id);
+        $this->hasLayoutView('blog/index',$data);
 	}
 
 }

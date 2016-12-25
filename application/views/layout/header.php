@@ -2,8 +2,7 @@
 <html>
 <head>
     <title>个人博客</title>
-    <link href="<?=base_url()?>public/css/base1.css" rel="stylesheet">
-    <link href="<?=base_url()?>public/css/index1.css" rel="stylesheet">
+
     <script type="text/javascript" src="<?=base_url()?>public/js/jquery.min.js"></script>
     <script type="text/javascript" src="<?=base_url()?>public/js/sliders.js"></script>
     <!--[if lt IE 9]>
