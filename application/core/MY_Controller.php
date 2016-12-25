@@ -16,7 +16,7 @@ class MY_Controller extends CI_Controller {
      * @param $res
      */
     protected function returnAjax($res){
-        exit(json_encode($res));
+        echo json_encode($res);
     }
 
 }

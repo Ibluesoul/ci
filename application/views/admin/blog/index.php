@@ -109,6 +109,7 @@
         $.ajax({
             url:'<?=site_url('admin/blog/del')?>',
             type:'post',
+            dataType:'json',
             data:{id:id},
             success:function(data){
                 if(data.code=='400'){
