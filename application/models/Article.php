@@ -54,7 +54,7 @@ class Article extends CI_Model {
 
     private function getTable()
     {
-        $result = $this->db->select('id, title, content, updated_at, created_at,hits')
+        $result = $this->db->select('id, title, content, abstract, updated_at, created_at,hits')
             ->from('article');
         return $result;
     }
@@ -113,6 +113,46 @@ class Article extends CI_Model {
             ->get()
             ->result();
         return $result;
+    }
+
+    /**
+     * 获取某篇文章的上一篇
+     * @param $time 传入该文章的created_at
+     * @return mixed
+     */
+    public function getUpArticle($time)
+    {
+        $result = $this->db->select('id, title')->from('article')
+            ->where('created_at>',$time)
+            ->order_by('created_at asc ')
+            ->get()
+            ->result();
+        return count($result)==0?null:$result[0];
+    }
+
+    /**
+     * 获取某篇文章的下一篇
+     * @param $time 传入该文章的created_at
+     * @return mixed
+     */
+    public function getDownArticle($time)
+    {
+        $result = $this->db->select('id, title')->from('article')
+            ->where('created_at<',$time)
+            ->order_by('created_at desc ')
+            ->get()
+            ->result();
+        return count($result)==0?null:$result[0];
+    }
+    /**
+     * 增加一个浏览记录
+     * @param $id
+     */
+    public function hits($id)
+    {
+        $this->db->set('hits','hits+1',false)
+            ->where('id',$id)
+            ->update('article');
     }
 
     /**

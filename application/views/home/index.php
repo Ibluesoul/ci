@@ -24,9 +24,9 @@
             <h2> <b>全部</b>博客 </h2>
             <?php foreach($all['list'] as $k =>$v): ?>
             <div class="blogs">
-                <figure><a href='<?=site_url('blog/index')?>?id<?=$v->id?>' class='preview'><img src='<?=base_url('public')?>/images/s<?=rand(1,18)?>.jpg'/></a> </figure>
-                <h3><a href="<?=site_url('blog/index')?>?id<?=$v->id?>"><?=$v->title?></a></h3>
-                <p>此时此刻，我的内心是崩溃的。本来已经在回学校的路上，但是我却没赶上大巴，导致我滞留在候车室。...</p>
+                <figure><a href='<?=site_url('blog/index')?>?id=<?=$v->id?>' class='preview'><img src='<?=base_url('public')?>/images/s<?=rand(1,18)?>.jpg'/></a> </figure>
+                <h3><a href="<?=site_url('blog/index')?>?id=<?=$v->id?>"><?=$v->title?></a></h3>
+                <p><?=$v->abstract?></p>
                 <ul>
                     <p class="autor"> <span class="dtime f_l"><?=$v->created_at?></span> <span class="viewnum f_l">浏览（<?=$v->hits?>）</span> </p>
                 </ul>

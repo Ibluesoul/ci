@@ -3,6 +3,7 @@
 <style>
     .index_about{
         min-height:1000px;
+        width:1030px;
     }
 </style>
 <!--header-->
@@ -17,7 +18,7 @@
         <h2 class="c_titile"><?=$article->title?></h2>
         <p class="box_c">
             <span class="d_time">发布时间：<?=$article->created_at?></span>
-            <span>浏览次数：<?=$article->hits?></span>
+            <span>浏览次数：<?=$article->hits+1?></span>
         </span>
         </p>
 
@@ -33,19 +34,9 @@
 
 
         <div class="nextinfo">
-            <p>上一篇：<a href='/'>跟着自己的心走</a> </p>
-            <p>下一篇：没有了 </p>
+            <p>上一篇：<?=$upArticle==null?'没有了':'<a href='.site_url('blog/index').'?id='.$upArticle->id.'>'.$upArticle->title.'</a>'?> </p>
+            <p>下一篇：<?=$downArticle==null?'没有了':'<a href='.site_url('blog/index').'?id='.$downArticle->id.'>'.$downArticle->title.'</a>'?> </p>
         </div>
     </div>
 
-    <aside class="right">
-
-
-
-
-
-
-
-
-    </aside>
 </article>

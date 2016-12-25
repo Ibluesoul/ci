@@ -29,7 +29,7 @@
 <!--header-->
 <!--header-->
 <header>
-    <div id="logo"><a href="/" title="个人博客"><h1>LOGO</h1><!--<img src="images/logo.png" width="260" height="100">--></a></div>
+    <div id="logo"><a href="javascript:;" title="个人博客"><img src="<?=base_url('public')?>/images/img/logo.jpg" width="200" height="100"></a></div>
     <nav class="topnav" id="topnav"> <a href="<?=site_url('home/index')?>" title="首页"><span>首页</span><span class="en"></span></a><!-- <a href="/" title="慢生活"><span>慢生活</span><span class="en"></span></a> <a href="/" title="忙里偷闲"><span>忙里偷闲</span><span class="en"></span></a> <a href="/" title="学无止境"><span>学无止境</span><span class="en"></span></a> <a href="/" title="相册"><span>相册</span><span class="en"></span></a> <a href="/" title="留言板"><span>留言板</span><span class="en"></span></a>--> </nav>
 </header>
 <!--header-->
