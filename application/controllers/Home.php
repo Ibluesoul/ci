@@ -20,7 +20,9 @@ class Home extends HController {
 	 */
 	public function index()
 	{
-        //echo 'hello world';
-		$this->load->view('home/index');
+        $page = $this->input->get('per_page');
+        $this->load->model('Article');
+        $data = $this->Article->getPageArticles($page?:0,5);
+		$this->hasLayoutView('home/index',$data);
 	}
 }
